@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Download
+echo "Downloading Respond..."
+wget --content-disposition https://github.com/madoublet/respond/blob/master/dist/release.zip?raw=true
+
+# Unzip
+echo "Unzipping to app"
+mkdir app
+unzip release.zip -d app
+
+# Create sites
+echo "Creating sites and resources folders"
+mkdir app/public/sites
+mkdir app/resources/sites
+chown -R www-data app/public/sites
+chown -R www-data app/resources/sites
+chown -R www-data app/storage
+
+# Copy .env
+cp app/.env.example app/.env
+
+# Install themes
+echo "Installing themes"
+wget --content-disposition https://github.com/madoublet/respond-themes/blob/master/dist/themes-en.zip?raw=true
+
+unzip themes-en.zip -d app/public/themes
+
+# Done
+echo "done!"

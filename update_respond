@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Remove existing release.zip
+rm -rf release.zip
+
+# Download
+echo "Downloading Respond..."
+wget --content-disposition https://github.com/madoublet/respond/blob/master/dist/release.zip?raw=true
+
+# Unzip
+echo "Unzipping to app"
+unzip release.zip -d app
+
+# Done
+echo "done!"

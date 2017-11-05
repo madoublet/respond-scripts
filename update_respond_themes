@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Remove existing themes-en.zip
+rm -rf themes-en.zip
+
+# Download
+echo "Downloading Respond..."
+wget --content-disposition https://github.com/madoublet/respond-themes/blob/master/dist/themes-en.zip?raw=true
+
+# Unzip
+echo "Unzipping to app"
+unzip themes-en.zip -d app/public/themes
+
+# Done
+echo "done!"
